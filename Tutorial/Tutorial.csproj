@@ -485,8 +485,11 @@
     <Compile Include="Assets\Model\GroundGrid.cs" />
     <Compile Include="Assets\Model\World.cs" />
     <Compile Include="Assets\Scripts\AddMultipleCubes.cs" />
+    <Compile Include="Assets\Scripts\AddToSelection.cs" />
     <Compile Include="Assets\Scripts\BaseScript.cs" />
     <Compile Include="Assets\Scripts\CubeMovement.cs" />
+    <Compile Include="Assets\Scripts\SaveAsPrefab.cs" />
+    <Compile Include="Assets\Scripts\SelectionManager.cs" />
     <Compile Include="Assets\Scripts\SetMenu.cs" />
   </ItemGroup>
   <ItemGroup>

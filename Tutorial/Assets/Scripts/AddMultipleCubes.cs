@@ -1,12 +1,16 @@
 ﻿using HoloToolkit.Examples.Prototyping;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif 
 using UnityEngine;
 
 public class AddMultipleCubes : MonoBehaviour
 {
     public GameObject manager;
     private GameObject view;
+    private static int latestID = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -29,11 +33,17 @@ public class AddMultipleCubes : MonoBehaviour
         newTarget.GetComponent<SetMenu>().Target = mainMenu;
         newTarget.GetComponent<SetMenu>().manager = manager;
 
-        // set up its MoveWithObject script
+        // set up its movewithobject script
         MoveWithObject newobject = newTarget.GetComponent<MoveWithObject>();
         newobject.ReferenceObject = view.transform.Find("HoloLensCamera").gameObject;
         newobject.StartRunning();
 
+
+        // save cube as prefab
+        string localAddress = "Assets/View/Models/cube" + latestID + ".prefab";
+        PrefabUtility.CreatePrefab(localAddress, newTarget);
+        latestID += 1;
+        Debug.Log("Saved: " + localAddress);
     }
 
     // Update is called once per frame
