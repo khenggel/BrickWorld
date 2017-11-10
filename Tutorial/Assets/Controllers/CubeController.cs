@@ -8,7 +8,8 @@ using UnityEngine.EventSystems;
 
 namespace BrickWorld.Controllers
 {
-
+       
+    // class description goes here
     public class CubeController : BaseScript, IInputClickHandler, IFocusable
     {
         private bool isInMultipleSelection;
